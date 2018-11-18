@@ -26,6 +26,13 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task = @user.tasks.find(params[:id])
+    @task.destroy
+
+    redirect_to action: 'index'
+  end
+
   private
 
   def find_user
