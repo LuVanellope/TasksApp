@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'tasks/index'
-  get 'tasks/show'
-  get 'tasks/new'
-  get 'tasks/edit'
-  root 'tasks#index'
+  root 'home#landing'
+
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :users do
+    resources :tasks
+  end
 end
