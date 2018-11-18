@@ -1,2 +1,12 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="text-center">
+        <h5><%= @task.title %></h5>
+        <p><%= @task.description %></p>
+        <%= link_to "Done", user_task_path(current_user, @task), method: :delete, class: 'btn btn-primary' %>
+        <%= link_to "Back", user_tasks_path(current_user), class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>

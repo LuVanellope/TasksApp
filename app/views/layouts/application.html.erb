@@ -10,6 +10,8 @@
   </head>
 
   <body>
+  <%= render 'shared/navbar' %>
+  
   <% if flash.any? %>
     <% flash.keys.each do |key| %>
       <div class="alert alert-<%= key.to_s %> mb-0" role="alert" style="color: #000;background-color: rgb(204, 229, 255)">

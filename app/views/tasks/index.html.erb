@@ -1,11 +1,20 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<% provide(:page_title, "My Tasks") %>
+<% provide(:tasks_active, 'active') %>
 
-<% @tasks.each do |t| %>
-  <% t.title %>
-  <% t.description %>
-  <%= link_to "Delete", user_task_path(current_user, t), method: :delete %>
-<% end %>
-
-<%= link_to " New Task", new_user_task_path(current_user, @task) %>
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<div class="container">
+  <div class="row">
+    <% @tasks.each do |t| %>
+    <%= t.title %>
+      <div class="col-md-4">
+        <div class="card">
+          <i class="fas fa-list-ul"></i>
+          <div class="card-body">
+            <h5 class="card-title"><%= t.title %></h5>
+            <%= link_to "Done", user_task_path(current_user, t), method: :delete, class: 'btn btn-primary' %>
+            <%= link_to "Details", user_task_path(current_user, t), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

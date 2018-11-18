@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = @user.friendly.tasks.find(params[:id])
+    @task = @user.tasks.find(params[:id])
   end
 
   def new
@@ -46,6 +46,6 @@ class TasksController < ApplicationController
   end
 
   def tasks_params
-    params.require(:task).permit(:tilte, :description)
+    params.require(:task).permit(:tilte, :description, :slug)
   end
 end
